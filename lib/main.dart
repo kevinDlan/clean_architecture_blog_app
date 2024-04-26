@@ -58,6 +58,3 @@ class _MyAppState extends State<MyApp> {
     );
   }
 }
-
-
-// https://www.youtube.com/watch?v=ELFORM9fmss&t=6226s
