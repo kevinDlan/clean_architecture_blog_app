@@ -8,6 +8,8 @@ import 'package:blog_app/features/auth/presentation/widgets/auth_gradient_button
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
+import '../../../blog/presentation/screens/blog_screen.dart';
+
 class SignupScreen extends StatefulWidget {
   const SignupScreen({super.key});
 
@@ -44,6 +46,12 @@ class _SignupScreenState extends State<SignupScreen> {
           if (state is AuthFailure) {
             showSnackbar(context, state.message, Colors.red);
             return;
+          } else if (state is AuthSuccess) {
+            Navigator.pushAndRemoveUntil(
+              context,
+              BlogScreen.route(),
+              (route) => false,
+            );
           }
         },
         builder: (context, state) {
